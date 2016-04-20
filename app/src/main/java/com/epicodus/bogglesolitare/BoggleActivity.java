@@ -37,13 +37,13 @@ public class BoggleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mGuessedWords = new ArrayList<String>();
-        mSetLetters = new ArrayList<Character>;
+        mSetLetters = new ArrayList<Character>();
         mSetLetters = generateGame();
-        String letterOutput = letterOutputFormat(mSetLetters);
+        final String letterOutput = letterOutputFormat(mSetLetters);
 
         mGameLetters.setText(letterOutput);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mGuessedWords);
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mGuessedWords);
         mGuessWordList.setAdapter(adapter);
 
         mAddWordButton.setOnClickListener(new View.OnClickListener(){
@@ -70,29 +70,33 @@ public class BoggleActivity extends AppCompatActivity {
             }
         });
     }
+
+    private ArrayList<Character> generateGame() {
+        mAllGameLetters = new ArrayList<Character>();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String vowels = "aeiou";
+        mAllGameLetters.clear();
+        Random r = new Random();
+        for(int i = 0; i < 6; i++) {
+            mAllGameLetters.add(alphabet.charAt(r.nextInt(alphabet.length())));
+        }
+        Random s = new Random();
+        for(int j = 0; j < 2; j++) {
+            mAllGameLetters.add(vowels.charAt(s.nextInt(vowels.length())));
+        }
+        return mAllGameLetters;
+    }
+
+    private String letterOutputFormat(ArrayList<Character> charArray) {
+        String output = "";
+        for(Character letter : charArray) {
+            output = output + letter + " ";
+        }
+        return output.trim();
+    }
 }
 
-private ArrayList<Character> generateGame() {
-    mAllGameLetters = new ArrayList<Character>();
-    String alphabet = "abcdefghijklmnopqrstuvwxyz";
-    String vowels = "aeiou";
-    mAllGameLetters.clear();
-    Random r = new Random();
-    for(int i = 0; i < 6; i++) {
-        mAllGameLetters.add(alphabet.charAt(r.nextInt(alphabet.length())));
-    }
-    Random s = new Random();
-    for(int j = 0; j < 2; j++) {
-        mAllGameLetters.add(vowels.charAt(s.nextInt(vowels.length())));
-    }
-    return mAllGameLetters;
-}
 
-private String letterOutputFormat(ArrayList<Character> charArray) {
-    String output = "";
-    for(Character letter : charArray) {
-        output = output + letter + " ";
-    }
-    return output.trim();
-}
+
+
 

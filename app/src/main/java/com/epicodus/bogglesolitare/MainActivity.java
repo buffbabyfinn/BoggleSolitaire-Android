@@ -10,7 +10,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = MainActivity.class;
+    public static final String TAG = MainActivity.class.getSimpleName();
     @Bind(R.id.playButton) Button mPlayButton;
 
     @Override
