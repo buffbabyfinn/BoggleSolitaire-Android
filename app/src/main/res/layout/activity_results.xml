@@ -10,41 +10,83 @@
     tools:context="com.epicodus.bogglesolitare.ResultsActivity"
     android:background="@color/colorPrimaryLight">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thanks for playing!"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="25sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wordsDisplay"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:textSize="20sp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/lettersDisplay"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
+        <ListView
+            android:layout_width="145dp"
+            android:layout_height="226dp"
+            android:id="@+id/validWords"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_row="2"
+            android:layout_column="2" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play Again!"
-        android:id="@+id/playAgainButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorTertiaryText"
-        android:background="@color/colorSecondaryDark" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thanks for playing!"
+            android:id="@+id/textView2"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="25sp"
+            android:layout_row="0"
+            android:layout_column="0" />
+
+        <ListView
+            android:layout_width="113dp"
+            android:layout_height="218dp"
+            android:id="@+id/invalidWords"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:stackFromBottom="false"
+            android:layout_row="2"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wordsDisplay"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:textSize="20sp"
+            android:text="new text"
+            android:layout_gravity="center_vertical"
+            android:layout_row="51"
+            android:layout_column="0"
+            android:maxWidth="125dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lettersDisplay"
+            android:textSize="20sp"
+            android:layout_below="@+id/wordsDisplay"
+            android:layout_alignRight="@+id/playAgainButton"
+            android:layout_alignEnd="@+id/playAgainButton"
+            android:layout_marginTop="44dp"
+            android:layout_gravity="bottom"
+            android:layout_row="51"
+            android:layout_column="2"
+            android:maxWidth="125dp" />
+
+        <Button
+            android:text="Play Again!"
+            android:id="@+id/playAgainButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorTertiaryText"
+            android:background="@color/colorSecondaryDark"
+            android:layout_row="64"
+            android:layout_column="2" />
+
+    </GridLayout>
+
 </RelativeLayout>

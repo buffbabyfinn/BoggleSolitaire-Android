@@ -92,7 +92,7 @@ public class BoggleActivity extends AppCompatActivity {
         for(Character letter : charArray) {
             output = output + letter + " ";
         }
-        return output.trim();
+        return output.toUpperCase().trim();
     }
 }
 
